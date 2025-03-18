@@ -1,4 +1,4 @@
-1. Identify potential duplicates
+**1. Identify potential duplicates**
 
 Find entries with identical or very similar names (case-insensitive) + show occurence count: 
 - SELECT company.name, COUNT(*)  FROM companies company JOIN normalized_companies normalized ON LOWER(company.name) = LOWER(normalized.name) GROUP BY company.name HAVING COUNT(*) > 1;
@@ -11,7 +11,8 @@ List the sources linked to the company
 Note: STRING_AGG is a used aggregate function that combines a list of strings into one, with a specified separator between them. (found information on the internet via: Stackoverflow) and read more about it on POSTGRESQL website.
 -------------------------------------------------------------------------------------------------------------
 
-2. Normalize the data
+**2. Normalize the data**
+
 - INSERT INTO normalized_companies (name, canonical_website)
 SELECT
     -- CASE expression goes through conditions and returns a value when the first condition is met (like an if-then-else statement).
